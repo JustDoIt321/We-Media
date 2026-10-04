@@ -1,0 +1,31 @@
+<view class="page">
+  <view class="intro"><text class="intro-icon">🐾</text><view><view class="intro-title">告诉我们毛孩子需要什么</view><view class="muted">填写约 1 分钟，服务全程有记录</view></view></view>
+
+  <view class="section-title">选择服务</view>
+  <view class="type-row">
+    <view class="type {{type === 'feed' ? 'active' : ''}}" data-type="feed" bindtap="chooseType">🐱<text>喂猫</text></view>
+    <view class="type {{type === 'clean' ? 'active' : ''}}" data-type="clean" bindtap="chooseType">🧹<text>铲屎</text></view>
+    <view class="type {{type === 'walk' ? 'active' : ''}}" data-type="walk" bindtap="chooseType">🐕<text>遛狗</text></view>
+  </view>
+
+  <view class="section-title">服务对象</view>
+  <view class="form-card card pet"><view class="pet-avatar">🐈</view><view class="grow"><view class="strong">{{petName}}</view><view class="muted">{{petType}}</view></view><text class="arrow">›</text></view>
+
+  <view class="section-title">预约信息</view>
+  <view class="form-card card">
+    <picker mode="date" value="{{date}}" bindchange="onDate"><view class="field"><text>📅 服务日期</text><text class="value">{{date || '请选择'}} ›</text></view></picker>
+    <picker mode="time" value="{{time}}" bindchange="onTime"><view class="field"><text>🕙 上门时间</text><text class="value">{{time}} ›</text></view></picker>
+    <view class="field last" bindtap="setAddress"><text>📍 服务地址</text><text class="value address">{{address}} ›</text></view>
+  </view>
+
+  <view class="section-title">任务清单</view>
+  <view class="form-card card">
+    <view wx:for="{{tasks}}" wx:key="text" class="task {{index === tasks.length - 1 ? 'last' : ''}}" data-index="{{index}}" bindtap="toggleTask">
+      <view class="check {{item.checked ? 'checked' : ''}}">{{item.checked ? '✓' : ''}}</view><text>{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="section-title">特别说明</view>
+  <textarea class="notes card" maxlength="120" placeholder="例如：团子怕生，进门后请先让它闻一闻手～" bindinput="onNotes" value="{{notes}}" />
+  <view class="price-bar"><view><text class="muted">预估服务费</text><view class="total">¥{{service.price}}</view></view><button class="button-primary submit" bindtap="submit">确认发布</button></view>
+</view>

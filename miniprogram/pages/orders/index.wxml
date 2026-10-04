@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="role-hint">{{role === 'owner' ? '🐾 主人视角 · 查看服务进度' : '🧤 服务者视角 · 管理接单任务'}}</view>
+  <view wx:if="{{!orders.length}}" class="empty"><text class="empty-icon">🐾</text><view>还没有订单</view><view class="muted tip">去首页选择一项服务吧</view></view>
+  <view wx:for="{{orders}}" wx:key="id" class="order card" data-id="{{item.id}}" bindtap="viewTask">
+    <view class="order-head"><view><text class="order-icon">{{item.icon}}</text><text class="order-title">{{item.serviceName}}</text></view><text class="status {{item.status}}">{{item.statusText}}</text></view>
+    <view class="pet-line"><text class="pet-dot">🐈</text><view><view class="strong">{{item.petName}} · {{item.petType}}</view><view class="muted">{{item.date}} {{item.time}}</view></view></view>
+    <view class="address">📍 {{item.address}}</view>
+    <view class="order-foot"><text class="muted">订单号 {{item.id}}</text><text class="amount">¥{{item.price}}</text></view>
+  </view>
+</view>

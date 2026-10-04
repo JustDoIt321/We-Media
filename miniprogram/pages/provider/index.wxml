@@ -1,0 +1,7 @@
+<view wx:if="{{provider}}" class="page">
+  <view class="top card"><view class="avatar">{{provider.avatar}}</view><view class="name">{{provider.name}}</view><view class="badge">{{provider.badge}}</view><view class="verified">✓ 实名认证　✓ 平台审核</view><view class="metrics"><view><text class="metric-value">{{provider.rating}}</text><text>综合评分</text></view><view><text class="metric-value">{{provider.orders}}</text><text>完成订单</text></view><view><text class="metric-value">{{provider.experience}}</text><text>服务经验</text></view></view></view>
+  <view class="section-title">关于我</view><view class="card content">{{provider.intro}}</view>
+  <view class="section-title">服务特点</view><view class="card content"><text wx:for="{{provider.tags}}" wx:key="*this" class="tag">{{item}}</text></view>
+  <view class="section-title">近期评价</view><view class="card review"><view>⭐⭐⭐⭐⭐ <text class="muted">昨天</text></view><view class="review-text">很有耐心，照片拍得很认真，回家看到团子状态很好。</view><view class="muted">来自一位猫咪主人</view></view>
+  <view class="bottom"><view><text class="price">¥{{provider.price}}</text><text class="muted"> / 次起</text></view><button class="button-primary" bindtap="book">立即预约</button></view>
+</view>

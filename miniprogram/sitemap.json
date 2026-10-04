@@ -1,0 +1,4 @@
+{
+  "desc": "宠伴到家页面索引",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

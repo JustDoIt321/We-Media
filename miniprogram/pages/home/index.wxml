@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="hero card">
+    <view class="hero-copy">
+      <view class="eyebrow">PAWMATE 宠伴到家</view>
+      <view class="hero-title"><text>出门放心，</text><text>毛孩子有人疼</text></view>
+      <view class="hero-desc">附近靠谱伙伴，上门服务全程留痕</view>
+    </view>
+    <view class="hero-pet"><text class="ear left"></text><text class="ear right"></text><text class="face">•ᴗ•</text></view>
+  </view>
+
+  <view class="notice">🔔 今日下单，最快 2 小时后可上门</view>
+
+  <view class="section-title">需要什么帮助？</view>
+  <view class="service-grid">
+    <view wx:for="{{services}}" wx:key="type" class="service-card {{item.color}}" data-type="{{item.type}}" bindtap="chooseService">
+      <view class="service-icon">{{item.icon}}</view>
+      <view class="service-name">{{item.name}}</view>
+      <view class="service-desc">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <view class="title-row">
+    <view class="section-title">附近的宠物伙伴</view>
+    <text class="muted">已实名审核</text>
+  </view>
+  <view wx:for="{{providers}}" wx:key="id" class="provider card" data-id="{{item.id}}" bindtap="viewProvider">
+    <view class="avatar">{{item.avatar}}</view>
+    <view class="provider-main">
+      <view><text class="provider-name">{{item.name}}</text><text class="verified">✓ 已认证</text></view>
+      <view class="badge">{{item.badge}}</view>
+      <view class="provider-meta">⭐ {{item.rating}} · {{item.orders}}单 · {{item.distance}}</view>
+    </view>
+    <view class="price"><text>¥</text>{{item.price}}<text class="unit">/次</text></view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view wx:if="{{order}}" class="page">
+  <view class="status-card card"><view class="status-icon">{{order.status === 'done' ? '🎉' : order.status === 'serving' ? '🧤' : '⏳'}}</view><view><view class="status-title">{{order.statusText}}</view><view class="muted">{{order.status === 'waiting' ? '正在等待附近服务者响应' : order.status === 'done' ? '本次服务已安全完成' : '请按任务清单完成服务'}}</view></view></view>
+  <view class="section-title">服务信息</view>
+  <view class="card info"><view><text>{{order.icon}} 服务项目</text><text class="info-value">{{order.serviceName}}</text></view><view><text>🐈 服务对象</text><text class="info-value">{{order.petName}}</text></view><view><text>🕙 上门时间</text><text class="info-value">{{order.date}} {{order.time}}</text></view><view><text>📍 服务地址</text><text class="info-value">{{order.address}}</text></view></view>
+  <view class="section-title">任务清单</view><view class="card checklist"><view wx:for="{{order.tasks}}" wx:key="*this"><text class="tick">✓</text>{{item}}</view></view>
+  <block wx:if="{{order.report}}"><view class="section-title">服务报告</view><view class="card report"><view class="report-title">毛孩子今天状态不错 🌿</view><view class="report-text">{{order.report.summary}}</view><view class="photos"><view wx:for="{{order.report.photos}}" wx:key="index">{{item}}<text>服务照片</text></view></view></view></block>
+  <view class="safety">🛡️ 订单全程记录，如遇紧急情况请联系平台客服</view>
+  <button wx:if="{{role === 'provider' && order.status === 'waiting'}}" class="button-primary action" bindtap="accept">确认接单</button>
+  <button wx:if="{{role === 'provider' && order.status === 'accepted'}}" class="button-primary action" bindtap="start">定位打卡并开始服务</button>
+  <button wx:if="{{role === 'provider' && order.status === 'serving'}}" class="button-primary action" bindtap="finish">完成任务并提交报告</button>
+  <view wx:if="{{role === 'owner' && order.status !== 'done'}}" class="owner-note">服务者操作后，进度会在这里更新</view>
+</view>

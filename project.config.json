@@ -1,0 +1,18 @@
+{
+  "description": "PawMate 宠伴到家 MVP",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "bundle": false,
+    "userConfirmedBundleSwitch": false,
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "trial",
+  "appid": "touristappid",
+  "projectname": "pawmate-mvp",
+  "miniprogramRoot": "miniprogram/"
+}

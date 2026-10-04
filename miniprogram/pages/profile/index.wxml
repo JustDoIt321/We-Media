@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="profile card"><view class="avatar">🐾</view><view class="grow"><view class="name">宠伴体验官</view><view class="muted">{{role === 'owner' ? '正在以宠物主人身份使用' : '正在以服务者身份使用'}}</view></view><text class="cert">✓ 已登录</text></view>
+  <view class="section-title">切换使用身份</view>
+  <view class="roles">
+    <view class="role card {{role === 'owner' ? 'active' : ''}}" data-role="owner" bindtap="switchRole"><text class="role-icon">🏠</text><view><view class="role-title">宠物主人</view><view class="muted">发布需求并查看报告</view></view></view>
+    <view class="role card {{role === 'provider' ? 'active' : ''}}" data-role="provider" bindtap="switchRole"><text class="role-icon">🧤</text><view><view class="role-title">上门服务者</view><view class="muted">接单并记录服务过程</view></view></view>
+  </view>
+  <view class="stats card"><view><text class="num">{{orderCount}}</text><text class="muted">全部订单</text></view><view><text class="num">{{doneCount}}</text><text class="muted">已完成</text></view><view><text class="num">5.0</text><text class="muted">信用评分</text></view></view>
+  <view class="menu card">
+    <view class="menu-item" bindtap="goOrders"><text>📋 我的订单</text><text>›</text></view>
+    <view class="menu-item"><text>🐈 宠物档案</text><text>›</text></view>
+    <view class="menu-item"><text>📍 地址管理</text><text>›</text></view>
+    <view class="menu-item"><text>🛟 帮助与客服</text><text>›</text></view>
+    <view class="menu-item last" bindtap="resetDemo"><text>🧪 清空演示数据</text><text>›</text></view>
+  </view>
+  <view class="safe">🛡️ 平台担保 · 实名服务 · 全程留痕</view>
+</view>
